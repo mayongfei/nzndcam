@@ -1,0 +1,21 @@
+{
+  "name": "hubot-enterprise-login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.13.4",
+    "jsonschema": "^1.2.0",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "mysql": "^2.15.0",
+    "winston": "^2.2.0"
+  },
+  "author": "EntIT Software LLC, a Micro Focus company",
+  "license": "MIT",
+  "devDependencies": {}
+}
