@@ -1,82 +1,18 @@
 body {
+    min-width: 800px;
+}
+input {
 
-}
-input[type='text'] {
-    height: 22px;
-}
-input.inputObj {
-    width: 400px;
-    height: 25px;
-    font-family: Arial;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 13px;
-    color: rgb(0, 0, 0);
-    text-align: left;
-    outline-style: none;
-    text-decoration: none;
-    border: 0px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.257);
-}
-input.radioClass {
-    height: 16px;
-    width: 16px;
-    opacity: 0;
-    cursor: pointer;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-}
-input.titleWidth {
-    width: 200px;
-    color: rgba(0, 0, 0, 0.557);
-}
-.radioLi {
-    width: 24px;
-    margin-right: 13px;
-    float: left;
-    cursor: pointer;
-    background: url('/images/u41_mouseover.png') no-repeat 0px 4px;
-}
-.radioLiChecked {
-    background: url('/images/u41_mousedown.png') no-repeat 0px 4px !important;
 }
 ul {
     list-style: none;
     margin: 0px !important;
     padding: 0px;
 }
-ul.float {
-    height: 25px;
-}
-ul.float li {
-    line-height: 25px;
+ul li {
     float: left;
 }
 
-.headLine {
-    margin-top: 30px;
-    font-family: 'MetricNEW Bold', 'MetricNEW Regular', 'MetricNEW';
-    font-weight: 700;
-    font-style: normal;
-    font-size: 18px;
-    color: #323435;
-}
-.axDefault {
-    font-family: 'Arial';
-    font-weight: 400;
-    font-style: normal;
-    font-size: 13px;
-    color: #333333;
-    line-height: normal;
-}
-.textTitle {
-    height: 33px;
-    font-family: MetricHPE;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.557);
-}
 .button {
     border-width: 0px;
     width: 80px;
@@ -114,9 +50,7 @@ ul.float li {
     flex-wrap: wrap;
     background-color: #f4f4f4;
 }
-.icon-icon_shipping {
 
-}
 span.free-orders {
     line-height: 40px;
     font-size: 16px;
@@ -126,24 +60,48 @@ span.free-orders {
     padding-right: 15px;
 }
 #navigator {
-    height: 80px;
     position: relative;
     background-size: cover;
     background-position: 50% 0;
     transition: background-color .3s, opacity .3s;
 }
 #sub-nav {
-    width: 90%;
+    height: 80px;
+    line-height: 80px;
+
 }
-#navLink {
+#nav-title {
+    height: 80px;
+    line-height: 80px;
+    margin: 0px 45px 0px 10px;
+}
+#nav-title ul li a.nav-link{
+    margin-left: 41px;
+}
+#nav-title ul li a.nav-icon{
+    margin-left: 23px;
+}
+#navHot {
     height: 65px;
     background-color: #f4f4f4;
 }
+.nav-link {
+    cursor: pointer;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #777;
+    font-family: roboto;
+}
+
 #content {
-    width: 900px;
-    height: 645px;
+    height: 600px;
     overflow-y: auto;
 }
 #footer {
 
+}
+
+#logo {
+    margin-left: 45px;
 }

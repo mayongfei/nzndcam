@@ -6,10 +6,9 @@
   <title>Products</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <script src="/js/jquery.min.js"></script>
   <script src="/js/vue.min.js"></script>
-  <style>
-
-  </style>
+  <script src="/js/main.js"></script>
 </head>
 <body>
 <div align="center">
@@ -19,27 +18,62 @@
     <span class="free-orders">Free Shipping on all Orders!</span>
   </div>
   <div id="navigator">
-    <div id="sub-nav">
-
+    <div id="sub-nav" class="container">
+      <div class="row">
+        <div class="col-xs-4 col-md-4" align="left">
+          <a href="http://localhost:3000/" id="logo"><img src="/images/logo.png" alt="Logo"/></a>
+        </div>
+        <div class="col-xs-8 col-md-8">
+          <div id="nav-title" class="row">
+            <ul>
+              <li>
+                <a class="nav-link" href="">Store</a>
+              </li>
+              <li>
+                <a class="nav-link" href="">Products</a>
+              </li>
+              <li>
+                <a class="nav-link" href="">Video</a>
+              </li>
+              <li>
+                <a class="nav-link" href="">Support</a>
+              </li>
+              <li>
+                <a class="nav-link" href="">Company</a>
+              </li>
+              <li>
+                <div style="height: 80px;width: 16px;margin-left: 15px;">丨</div>
+              </li>
+              <li>
+                <a class="nav-icon" href=""><img src="/images/search.png"/></a>
+              </li>
+              <li>
+                <a class="nav-icon" href=""><img src="/images/user.png"/></a>
+              </li>
+              <li>
+                <a class="nav-icon" href=""><img src="/images/cart.png"/></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="navLink">
+  <div id="navHot">
 
   </div>
-  <div id="content">
-    <table width="96%" v-if="items.length > 0" border="0">
-      <tr v-for="item in items">
-        <td v-for="product in item">
-          <a v-bind:href="'/product/' + product.id"><img v-bind:src="'/images/' + product.src" width="200px"></a><br/>
+  <div id="content" class="container">
+    <div v-if="items.length > 0">
+      <div class="row" v-for="item in items">
+        <div class="col-xs-3 col-sm-3" v-for="product in item">
+          <a v-bind:href="'/product/' + product.id"><img v-bind:src="'/images/' + product.src" width="220px"></a><br/>
           <a v-bind:href="'/product/' + product.id">{{product.name}}</a><br/>
-        </td>
-      </tr>
-    </table>
-    <table width="90%" v-else>
-      <tr>
-        <td>Currently there is no Product. Please click 'Add Product' button to add product.</td>
-      </tr>
-    </table>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <p>Currently there is no Product. Please click 'Add Product' button to add product.</p>
+    </div>
   </div>
   <div id="footer">
     <table width="96%">
