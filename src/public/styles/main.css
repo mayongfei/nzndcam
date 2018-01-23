@@ -1,47 +1,69 @@
 body {
-    min-width: 800px;
+    margin: 0px;
 }
+* {
+    box-sizing: border-box;
+}
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class *= "col-"] {
+    float: left;
+    padding: 15px;
+}
+@media only screen and (max-width: 767px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .col-half {
+        float: none;
+        display: inline-block;
+        width: 50%;
+    }
+    .col-all {width: 100%;}
+}
+@media only screen and (min-width: 992px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
 input {
 
 }
 ul {
     list-style: none;
-    margin: 0px !important;
+    margin: 0px;
     padding: 0px;
 }
 ul li {
     float: left;
 }
 
-.button {
-    border-width: 0px;
-    width: 80px;
-    height: 32px;
-    font-family: 'MetricNEW Bold', 'MetricNEW Regular', 'MetricNEW';
-    font-weight: 700;
-    font-style: normal;
-    font-size: 14px;
-    color: #FFFFFF;
-    text-align: center;
-    background: inherit;
-    background-color: rgba(0, 121, 239, 1);
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(121, 121, 121, 1);
-    border-radius: 0px;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
 .pointer {
     cursor: pointer;
 }
 #app {
-
+    margin: auto;
 }
 #header {
     height: 40px;
+    text-align: center;
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
@@ -50,8 +72,15 @@ ul li {
     flex-wrap: wrap;
     background-color: #f4f4f4;
 }
+#header img {
+    margin: auto;
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 span.free-orders {
+    display: inline-block;
     line-height: 40px;
     font-size: 16px;
     font-family: ubuntu;
@@ -60,6 +89,8 @@ span.free-orders {
     padding-right: 15px;
 }
 #navigator {
+    margin: auto;
+    max-width: 1300px;
     position: relative;
     background-size: cover;
     background-position: 50% 0;
@@ -95,8 +126,13 @@ span.free-orders {
 }
 
 #content {
-    height: 600px;
+    max-width: 1300px;
+    margin: auto;
     overflow-y: auto;
+}
+#content img {
+    width: 100%;
+    height: auto;
 }
 #footer {
 

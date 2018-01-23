@@ -1,6 +1,7 @@
 const express= require('express');
 const router = express.Router();
 const queryFunc = require('../../dao/connection');
+const {items} = require('../../test/data');
 const {
     ROUTER_URIS
 } = require('../constants');
@@ -13,6 +14,9 @@ router.get('/', function (req, res) {
         });
     }).catch((err) => {
         console.log(err);
+        res.render('index', {
+            products: JSON.stringify(items)
+        });
     });
 });
 
