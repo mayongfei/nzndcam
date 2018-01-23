@@ -18,6 +18,9 @@ body {
     [class*="col-"] {
         width: 100%;
     }
+    #navigator {
+        display: none;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .col-half {
@@ -26,6 +29,9 @@ body {
         width: 50%;
     }
     .col-all {width: 100%;}
+    #navigator {
+        display: none;
+    }
 }
 @media only screen and (min-width: 992px) {
     /* For desktop: */
