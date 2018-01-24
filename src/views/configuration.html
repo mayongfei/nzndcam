@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>ChatOps Configuration</title>
+  <link rel="stylesheet" href="/chatops-config/styles/main.css">
+  <link rel="stylesheet" href="/chatops-config/styles/bootstrap.min.css">
+  <script src="/chatops-config/js/jquery.min.js"></script>
+  <script src="/chatops-config/js/vue.min.js"></script>
+</head>
+<body>
+<div align="center">
+<div id="app" class="appStyle">
+  <form id="configBotForm" name="configBotForm" method="post" action="/chatops-config">
+    <div class="content">
+      <table id="configTable">
+        <tbody v-on:click="removeChild">
+        <tr v-bind:style="{display: isConfigTitle}">
+          <td colspan="2">
+            <p class="headLine">{{selectedPlatform}} Configuration</p>
+          </td>
+        </tr>
+        <tr v-bind:style="{display: platform}">
+          <td colspan="2">
+            <table v-on:click="checkPlatform">
+              <tr>
+                <td align="left">
+                  <p class="headLine">Select ChatOps Collaboration Tool:</p>
+                  <p class="axDefault">The most popular tools are Slack, MatterMost, and Microsoft Teams.</p>
+                </td>
+              </tr>
+              <tr v-for="env in selectVars" width="160px">
+                <td>
+                  <table>
+                    <tr>
+                      <td>
+                        <ul class="float">
+                          <li class="radioLi">
+                            <input v-bind:id="env.id" class="radioClass" v-bind:value="env.value" v-bind:name="env.name" v-model="selectedPlatform" v-bind:type="env.type"/>
+                          </li>
+                          <li>
+                            <span class="axDefault">{{env.title}}</span>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p class="axDefault">{{env.des}}</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="headLine">Configure Login Server:</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul class="float">
+                    <li class="radioLi">
+                      <input id="login" class="radioClass" value="login" name="login" v-model="selectedPlatform" type="radio"/>
+                    </li>
+                    <li>
+                      <span class="axDefault">login</span>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="axDefault">Login Server is used to collaboration tool authentication.</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr v-for="env in vaultData[selectedPlatform]" v-bind:style="{display: back}">
+          <td width="45%" align="right" class="textTitle">{{env.name}}:&nbsp;&nbsp;</td>
+          <td>
+            <input v-bind:id="env.id" v-bind:name="env.name" v-bind:value="env.value" v-model="env.value" v-bind:type="env.type" class="inputObj"/>
+          </td>
+        </tr>
+        <tr v-for="item in suiteData[selectedPlatform]" v-bind:style="{display: back}">
+          <td align="right" class="textTitle"><input type="text" v-bind:value="item.name" v-model="item.name" class="inputObj titleWidth"/>:&nbsp;&nbsp;</td>
+          <td>
+            <input type="text" v-bind:id="item.id" v-bind:name="item.name" v-bind:value="item.value" v-model="item.value" class="inputObj"/>
+            <img src="/chatops-config/images/delete.png" title="Delete" class="pointer"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <table width="96%">
+        <tr>
+          <td width="30%" align="center">
+            <input v-bind:style="{display: isAddParam}" type="button" id="addParam" class="button" value="Add Row" v-on:click="addParam"/>
+          </td>
+          <td align="right">
+            <table width="200px" border="0">
+              <tr>
+                <td width="50%">
+                  <input type="button" class="button" id="backButton" value="Back" v-bind:style="{display: back}" v-on:click="backPlatform"/>
+                </td>
+                <td>
+                  <input type="button" class="button" id="nextButton" value="Next" v-bind:style="{display: next}" v-on:click="updatePlatform"/>
+                  <input type="button" class="button" id="submit" value="Submit" v-bind:style="{display: isConfigTitle}" v-on:click="submitButton"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
+</div>
+<script src="/chatops-config/js/configure.js"></script>
+<script>
+    var serverData = JSON.parse('<%-vaultData%>');
+    var suiteData = {
+        'mattermost': [],
+        'slack': [],
+        'msteams': []
+    };
+    if(typeof(Storage)!=="undefined") {
+        if(localStorage.getItem("suiteData") && localStorage.getItem("suiteData") !== "{}"){
+            suiteData = JSON.parse(localStorage.getItem("suiteData"));
+        }
+    }
+    var vaultData = getVaultData(serverData, defaultData, passwords);
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            selectedPlatform: '',
+            platform: '',
+            isConfigTitle: 'none',
+            isAddParam: 'none',
+            back: 'none',
+            next: 'none',
+            vaultData: vaultData,
+            suiteData: suiteData
+        },
+        watch: {
+            suiteData: {
+                handler: function (val, oldVal) {
+                    window.localStorage.setItem("suiteData", JSON.stringify(val));
+                },
+                deep: true
+            }
+        },
+        methods: {
+            checkPlatform: function (event) {
+                if(event.target.checked){
+                    this.vaultData = {};
+                    this.next = '';
+                    $("ul li.radioLiChecked").removeClass("radioLiChecked");
+                    $(event.target.parentNode).addClass("radioLiChecked");
+                }
+            },
+            updatePlatform: function (event) {
+                this.platform = 'none';
+                this.isConfigTitle = '';
+                this.isAddParam = '';
+                if(this.selectedPlatform == 'login'){
+                    this.isAddParam = 'none';
+                }
+                this.vaultData = vaultData;
+                this.suiteData = suiteData;
+                this.next = 'none';
+                this.back = '';
+            },
+            backPlatform: function (event) {
+                this.next = '';
+                //document.getElementById("nextButton").removeAttribute('disabled');
+                this.platform = '';
+                this.isConfigTitle = 'none';
+                this.back = 'none';
+                this.isAddParam = 'none';
+            },
+            addParam: function (event) {
+                var index = suiteData[this.selectedPlatform].length;
+                suiteData[this.selectedPlatform].push({
+                    key: index,
+                    id: 'suiteEnvVarName' + index,
+                    name: '',
+                    value: ''
+                });
+                this.suiteData[this.selectedPlatform] = suiteData[this.selectedPlatform];
+            },
+            removeChild: function (event) {
+                if(event.target.title == 'Delete' && event.target.nodeName == 'IMG'){
+                    //event.currentTarget.removeChild(event.target.parentNode.parentNode);
+                    var index = $("#configTable td img[title='Delete']").index(event.target);
+                    suiteData[this.selectedPlatform].splice(index,1);
+                    this.suiteData[this.selectedPlatform] = suiteData[this.selectedPlatform];
+                }
+            },
+            submitButton: function (event) {
+                var type = 'bot';
+                if(this.selectedPlatform == 'login'){
+                  type = 'server';
+                }
+                serverData.platform = this.selectedPlatform;
+                var key;
+                var item = {};
+                $("table#configTable tr td input.inputObj:not(.titleWidth)").each(function (i) {
+                    key = $(this).attr('name');
+                    item[key] = $(this).val();
+                });
+                serverData[this.selectedPlatform] = item;
+                submitDate(serverData);
+                alert("Submit successfully, " + this.selectedPlatform + " " + type + " bot is loading...");
+            }
+        }
+    });
+</script>
+</body>
+</html>
