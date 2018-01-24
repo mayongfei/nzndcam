@@ -1,8 +1,8 @@
 {
-  "name": "hubot-enterprise-login",
+  "name": "product-display",
   "version": "1.0.0",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "scripts": {},
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -15,7 +15,7 @@
     "mysql": "^2.15.0",
     "winston": "^2.2.0"
   },
-  "author": "EntIT Software LLC, a Micro Focus company",
+  "author": "mayongfei",
   "license": "MIT",
   "devDependencies": {}
 }
