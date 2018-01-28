@@ -4,6 +4,7 @@ body {
 * {
     box-sizing: border-box;
 }
+
 .row:after {
     content: "";
     clear: both;
@@ -11,44 +12,83 @@ body {
 }
 [class *= "col-"] {
     float: left;
-    padding: 15px;
+    padding: 0px 0px;
 }
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-        width: 100%;
-    }
-    #navigator {
-        display: none;
-    }
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.row-responsive:after {
+    content: "";
+    clear: both;
+    display: block;
 }
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-    .col-half {
+.responsive {
+    padding: 7px;
+    float: left;
+    width: 24.99999%;
+}
+.logo-mob, .div-menu {
+    text-align: left;
+}
+.div-shop {
+    text-align: right;
+}
+#menu, #shop {
+    display: none;
+    line-height: 80px;
+}
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
         float: none;
         display: inline-block;
-        width: 50%;
     }
-    .col-all {width: 100%;}
-    #navigator {
+    .col-all {
+        width: 100%;
+    }
+    #nav-title {
         display: none;
     }
-}
-@media only screen and (min-width: 992px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+    .logo-mob {
+        text-align: center;
+    }
+    #menu, #shop {
+        display: inline;
+    }
 }
 
+@media only screen and (max-width: 500px){
+    .responsive, col-all {
+        width: 100%;
+    }
+    #nav-title {
+        display: none;
+    }
+    .logo-mob {
+        text-align: center;
+    }
+    #menu, #shop {
+        display: inline;
+    }
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+img {
+    cursor: pointer;
+}
 input {
 
 }
@@ -58,7 +98,7 @@ ul {
     padding: 0px;
 }
 ul li {
-    float: left;
+
 }
 
 .pointer {
@@ -95,35 +135,114 @@ span.free-orders {
     padding-right: 15px;
 }
 #navigator {
+    height: 80px;
     margin: auto;
-    max-width: 1300px;
+    max-width: 1120px;
     position: relative;
     background-size: cover;
     background-position: 50% 0;
     transition: background-color .3s, opacity .3s;
 }
-#sub-nav {
-    height: 80px;
-    line-height: 80px;
-
-}
 #nav-title {
-    height: 80px;
     line-height: 80px;
-    margin: 0px 45px 0px 10px;
+    margin: 0px 0px 0px 0px;
+}
+#nav-title ul{
+    height: 80px;
+    width: 100%;
+}
+#nav-title ul li {
+    float: left;
+}
+li#store, li#video, li#company{
+    width: 13%;
+}
+li#products, li#support{
+    width: 15%;
+}
+li#split{
+    width: 6%;
+}
+li#search, li#user, li#cart{
+    width: 7%;
 }
 #nav-title ul li a.nav-link{
-    margin-left: 41px;
+
 }
 #nav-title ul li a.nav-icon{
-    margin-left: 23px;
+
+}
+#mob-nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0.95;
+    z-index: 1;
+}
+#delete-nav {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+}
+#mob-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+    background-color: #f4f4f4;
+    left: 0;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+#mob-menu ul{
+    margin-top: 30px;
+}
+#mob-menu ul li{
+    border-top: 1px solid #ececec;
+}
+#mob-menu ul li a {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: rgba(102,102,102,0.85);
+    padding: 15px 0px 15px 20px;
+}
+#mob-menu ul li a:hover {
+    color: #0088cc;
+}
+#slider {
+    height: 494px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: url("../images/home-banner1.jpg");
+}
+.owl-dots {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+}
+.owl-dots .active {
+    background-color: #00ade5;
+}
+.owl-dot {
+    height: 12px;
+    width: 12px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0 5px;
+    background-color: rgba(119,119,119,0.6);
 }
 #navHot {
     height: 65px;
     background-color: #f4f4f4;
 }
 .nav-link {
-    cursor: pointer;
     text-transform: none;
     font-weight: 400;
     font-size: 16px;
@@ -132,7 +251,8 @@ span.free-orders {
 }
 
 #content {
-    max-width: 1300px;
+    padding-top: 20px;
+    max-width: 1120px;
     margin: auto;
     overflow-y: auto;
 }
@@ -144,6 +264,13 @@ span.free-orders {
 
 }
 
+.icon-menu:before {
+    content: "\e800";
+}
+
 #logo {
-    margin-left: 45px;
+    margin: auto;
+}
+#logo img {
+    max-height: 80px;
 }

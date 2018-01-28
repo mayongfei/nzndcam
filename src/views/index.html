@@ -11,49 +11,95 @@
 </head>
 <body>
 <div id="app" class="app">
+  <div id="mob-nav" v-on:click="hideMobileNav">
+    <img id="delete-nav" src="/images/delete.png">
+    <div id="mob-menu">
+      <ul>
+        <li>
+          <a class="nav-link" href="">Store</a>
+        </li>
+        <li>
+          <a class="nav-link" href="">Products</a>
+        </li>
+        <li>
+          <a class="nav-link" href="">Video</a>
+        </li>
+        <li>
+          <a class="nav-link" href="">Support</a>
+        </li>
+        <li>
+          <a class="nav-link" href="">Company</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div id="header">
     <img src="/images/icon-icon_shipping.png" class="icon-icon_shipping" height="30px"/>
     <span class="free-orders">Free Shipping on all Orders!</span>
   </div>
-  <div id="navigator">
-    <div id="sub-nav" class="container">
-      <div class="row">
-        <div class="col-4 col-all" align="left">
-          <a href="http://localhost:3000/" id="logo"><img src="/images/logo.png" alt="Logo"/></a>
-        </div>
-        <div class="col-8 col-all">
-          <div id="nav-title" class="row">
-            <ul>
-              <li>
-                <a class="nav-link" href="">Store</a>
-              </li>
-              <li>
-                <a class="nav-link" href="">Products</a>
-              </li>
-              <li>
-                <a class="nav-link" href="">Video</a>
-              </li>
-              <li>
-                <a class="nav-link" href="">Support</a>
-              </li>
-              <li>
-                <a class="nav-link" href="">Company</a>
-              </li>
-              <li>
-                <div style="height: 80px;width: 16px;margin-left: 15px;">丨</div>
-              </li>
-              <li>
-                <a class="nav-icon" href=""><img src="/images/search.png"/></a>
-              </li>
-              <li>
-                <a class="nav-icon" href=""><img src="/images/user.png"/></a>
-              </li>
-              <li>
-                <a class="nav-icon" href=""><img src="/images/cart.png"/></a>
-              </li>
-            </ul>
+  <div id="navigator" class="nav-h-1 nav-h-2">
+    <div class="row">
+      <div class="col-4 col-all logo-mob">
+        <div class="row">
+          <div class="col-3 div-menu">
+            <a href="http://localhost:3000/" id="menu" v-on:click="showMobileNav"><img src="/images/icon-menu.png" alt="Menu"/></a>
+          </div>
+          <div class="col-6">
+            <a href="http://localhost:3000/" id="logo"><img src="/images/logo.jpg" alt="Logo"/></a>
+          </div>
+          <div class="col-3 div-shop">
+            <a href="http://localhost:3000/" id="shop"><img src="/images/cart-mo.png" alt="Menu"/></a>
           </div>
         </div>
+      </div>
+      <div class="col-8 col-all">
+        <div id="nav-title" class="">
+          <ul>
+            <li id="store">
+              <a class="nav-link" href="">Store</a>
+            </li>
+            <li id="products">
+              <a class="nav-link" href="">Products</a>
+            </li>
+            <li id="video">
+              <a class="nav-link" href="">Video</a>
+            </li>
+            <li id="support">
+              <a class="nav-link" href="">Support</a>
+            </li>
+            <li id="company">
+              <a class="nav-link" href="">Company</a>
+            </li>
+            <li id="split">
+              <div style="height: 80px;width: 16px;margin-left: 15px;">丨</div>
+            </li>
+            <li id="search">
+              <a class="nav-icon" href=""><img src="/images/search.png"/></a>
+            </li>
+            <li id="user">
+              <a class="nav-icon" href=""><img src="/images/user.png"/></a>
+            </li>
+            <li id="cart">
+              <a class="nav-icon" href=""><img src="/images/cart.png"/></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="slider">
+    <div class="owl-dots">
+      <div class="owl-dot active" v-on:click="slider($event, 0)">
+        <span></span>
+      </div>
+      <div class="owl-dot" v-on:click="slider($event, 1)">
+        <span></span>
+      </div>
+      <div class="owl-dot" v-on:click="slider($event, 2)">
+        <span></span>
+      </div>
+      <div class="owl-dot" v-on:click="slider($event, 3)">
+        <span></span>
       </div>
     </div>
   </div>
@@ -62,8 +108,8 @@
   </div>
   <div id="content">
     <div v-if="items.length > 0">
-      <div class="row" v-for="item in items">
-        <div class="col-3 col-half" v-for="product in item">
+      <div class="row-responsive" v-for="item in items">
+        <div class="responsive" v-for="product in item">
           <a v-bind:href="'/product/' + product.id"><img v-bind:src="'/images/' + product.src" width="220px"></a><br/>
           <a v-bind:href="'/product/' + product.id">{{product.name}}</a><br/>
         </div>
@@ -77,6 +123,7 @@
 
   </div>
 </div>
+
 <script>
     var products = JSON.parse('<%-products%>');
     var colSize = 4;
@@ -95,9 +142,44 @@
             items: items
         },
         methods: {
-
+            hideMobileNav: function(e) {
+                e.currentTarget.style.display = "none";
+                document.querySelector("html").style.overflow = 'auto';
+            },
+            showMobileNav: function(e) {
+                e.preventDefault();
+                document.getElementById('mob-nav').style.display = "block";
+                document.querySelector("html").style.overflow = 'hidden';
+            },
+            slider: function(e, index) {
+                document.querySelectorAll("#slider .owl-dots .owl-dot").forEach(function(node, i){
+                    node.setAttribute('class', 'owl-dot');
+                });
+                e.currentTarget.setAttribute('class', 'owl-dot active');
+                document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner'+index+'.jpg")';
+            }
         }
     });
+
+    var sliderTimer;
+    sliderTimer = setInterval(setSlider, 3000);
+    function setSlider() {
+        var sliders = document.querySelectorAll("#slider .owl-dots .owl-dot");
+        for(var i = 0; i < sliders.length; i++){
+            if(sliders[i].classList.contains('active')){
+                sliders[i].setAttribute('class', 'owl-dot');
+                document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner'+i+'.jpg")';
+                if(i === sliders.length - 1){
+                    sliders[0].setAttribute('class', 'owl-dot active');
+                    break;
+                }else{
+                    sliders[i+1].setAttribute('class', 'owl-dot active');
+                    break;
+                }
+            }
+
+        }
+    }
 </script>
 </body>
 </html>
