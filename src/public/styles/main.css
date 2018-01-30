@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    font-family: "Roboto", sans-serif;
 }
 * {
     box-sizing: border-box;
@@ -166,10 +167,14 @@ li#split{
 li#search, li#user, li#cart{
     width: 7%;
 }
-#nav-title ul li a.nav-link{
-
+.nav-link {
+    text-transform: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #777;
+    font-family: "Roboto", sans-serif;
 }
-#nav-title ul li a.nav-icon{
+.nav-icon{
 
 }
 #mob-nav {
@@ -213,13 +218,77 @@ li#search, li#user, li#cart{
     color: #0088cc;
 }
 #slider {
-    height: 494px;
+    position: relative;
+    height: 474px;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    background-image: url("../images/home-banner1.jpg");
+    background-image: url("../images/home-banner0.jpg");
 }
+.owl-nav {
+    display: none;
+    width: 0 !important;
+}
+.owl-dot, .owl-nav .owl-next, .owl-nav .owl-prev {
+    cursor: pointer;
+    cursor: hand;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.owl-nav > div {
+    display: inline-block;
+    padding: 10px 0;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+}
+.owl-prev {
+    left: 60px;
+    -webkit-transition: left 0.3s;
+    transition: left 0.3s;
+}
+.owl-next {
+    right: 60px;
+    -webkit-transition: right 0.3s;
+    transition: right 0.3s;
+    float: right;
+}
+.banner-arrow-left, .banner-arrow-right {
+    border-radius: 100%;
+    border: 2px solid #ccc;
+    display: inline-block;
+    padding: 8px;
+}
+.banner-arrow-left:hover, .banner-arrow-right:hover {
+    border: 2px solid #00ace6;
+    background: #00ace6;
+}
+.banner-arrow-left:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: relative;
+    left: 3px;
+}
+.banner-arrow-right:before {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    position: relative;
+    right: 3px;
+}
+.banner-arrow-left:before, .banner-arrow-right:before {
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    content: '';
+    display: block;
+}
+
 .owl-dots {
     width: 100%;
     position: absolute;
@@ -241,13 +310,6 @@ li#search, li#user, li#cart{
 #navHot {
     height: 65px;
     background-color: #f4f4f4;
-}
-.nav-link {
-    text-transform: none;
-    font-weight: 400;
-    font-size: 16px;
-    color: #777;
-    font-family: roboto;
 }
 
 #content {

@@ -87,18 +87,26 @@
       </div>
     </div>
   </div>
-  <div id="slider">
+  <div id="slider" v-on:mouseover="showIcon" v-on:mouseout="hideIcon">
+    <div class="owl-nav">
+      <div class="owl-prev">
+        <div class="banner-arrow-left" v-on:click="sliderImage($event, 'pre')"></div>
+      </div>
+      <div class="owl-next">
+        <div class="banner-arrow-right" v-on:click="sliderImage($event, 'next')"></div>
+      </div>
+    </div>
     <div class="owl-dots">
-      <div class="owl-dot active" v-on:click="slider($event, 0)">
+      <div class="owl-dot active" v-on:click="changeImage($event, 0)">
         <span></span>
       </div>
-      <div class="owl-dot" v-on:click="slider($event, 1)">
+      <div class="owl-dot" v-on:click="changeImage($event, 1)">
         <span></span>
       </div>
-      <div class="owl-dot" v-on:click="slider($event, 2)">
+      <div class="owl-dot" v-on:click="changeImage($event, 2)">
         <span></span>
       </div>
-      <div class="owl-dot" v-on:click="slider($event, 3)">
+      <div class="owl-dot" v-on:click="changeImage($event, 3)">
         <span></span>
       </div>
     </div>
@@ -129,6 +137,8 @@
     var colSize = 4;
     var cols = [];
     var items = [];
+    var sliderTimer;
+    var sliderInterval = 3000;
     for(var i = 0; i < products.length; i++) {
         cols.push(products[i]);
         if((i + 1)%colSize === 0) {
@@ -151,33 +161,52 @@
                 document.getElementById('mob-nav').style.display = "block";
                 document.querySelector("html").style.overflow = 'hidden';
             },
-            slider: function(e, index) {
+            showIcon: function () {
+                document.querySelector("#slider .owl-nav").style.display = "block";
+                document.querySelector("#slider .owl-nav .owl-prev").style.left = "55px";
+                document.querySelector("#slider .owl-nav .owl-next").style.right = "55px";
+            },
+            hideIcon: function () {
+                document.querySelector("#slider .owl-nav").style.display = "none";
+            },
+            changeImage: function(e, index) {
+                clearInterval(sliderTimer);
                 document.querySelectorAll("#slider .owl-dots .owl-dot").forEach(function(node, i){
-                    node.setAttribute('class', 'owl-dot');
+                    if(node.classList.contains('active')){
+                        node.setAttribute('class', 'owl-dot');
+                    }
                 });
                 e.currentTarget.setAttribute('class', 'owl-dot active');
                 document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner'+index+'.jpg")';
+                sliderTimer = setInterval(function () {
+                    getImage('next');
+                }, sliderInterval);
+            },
+            sliderImage: function(e, type) {
+                clearInterval(sliderTimer);
+                getImage(type);
+                sliderTimer = setInterval(function () {
+                    getImage('next');
+                }, sliderInterval);
             }
         }
     });
 
-    var sliderTimer;
-    sliderTimer = setInterval(setSlider, 3000);
-    function setSlider() {
+    sliderTimer = setInterval(function () {
+        getImage('next');
+    }, sliderInterval);
+    function getImage(type) {
         var sliders = document.querySelectorAll("#slider .owl-dots .owl-dot");
         for(var i = 0; i < sliders.length; i++){
             if(sliders[i].classList.contains('active')){
                 sliders[i].setAttribute('class', 'owl-dot');
-                document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner'+i+'.jpg")';
-                if(i === sliders.length - 1){
-                    sliders[0].setAttribute('class', 'owl-dot active');
-                    break;
-                }else{
-                    sliders[i+1].setAttribute('class', 'owl-dot active');
-                    break;
-                }
+                var next = (i === sliders.length - 1) ? 0 : (i + 1);
+                var pre = (i === 0) ? (sliders.length - 1) : (i - 1);
+                var index = (type === 'next') ? next : pre;
+                document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner' + index + '.jpg")';
+                sliders[index].setAttribute('class', 'owl-dot active');
+                break;
             }
-
         }
     }
 </script>
