@@ -87,10 +87,10 @@
       </div>
     </div>
   </div>
-  <div id="slider">
+  <div id="slider" draggable="true">
     <div class="owl-nav">
       <div class="owl-prev">
-        <div class="banner-arrow-left" v-on:click="sliderImage($event, 'pre')"></div>
+        <div class="banner-arrow-left" v-on:click="sliderImage($event, 'prev')"></div>
       </div>
       <div class="owl-next">
         <div class="banner-arrow-right" v-on:click="sliderImage($event, 'next')"></div>
@@ -138,7 +138,7 @@
     var cols = [];
     var items = [];
     var sliderTimer;
-    var sliderInterval = 3000;
+    var sliderInterval = 5000;
     for(var i = 0; i < products.length; i++) {
         cols.push(products[i]);
         if((i + 1)%colSize === 0) {
@@ -193,8 +193,8 @@
             if(sliders[i].classList.contains('active')){
                 sliders[i].setAttribute('class', 'owl-dot');
                 var next = (i === sliders.length - 1) ? 0 : (i + 1);
-                var pre = (i === 0) ? (sliders.length - 1) : (i - 1);
-                var index = (type === 'next') ? next : pre;
+                var prev = (i === 0) ? (sliders.length - 1) : (i - 1);
+                var index = (type === 'next') ? next : prev;
                 document.getElementById('slider').style.backgroundImage = 'url("../images/home-banner' + index + '.jpg")';
                 sliders[index].setAttribute('class', 'owl-dot active');
                 break;
