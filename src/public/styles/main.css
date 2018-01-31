@@ -226,9 +226,12 @@ li#search, li#user, li#cart{
     background-position: center top;
     background-image: url("../images/home-banner0.jpg");
 }
-.owl-nav {
+#slider .owl-nav {
     display: none;
     width: 0 !important;
+}
+#slider:hover .owl-nav {
+    display: block;
 }
 .owl-dot, .owl-nav .owl-next, .owl-nav .owl-prev {
     cursor: pointer;
@@ -247,8 +250,13 @@ li#search, li#user, li#cart{
     transform: translateY(-50%);
     top: 50%;
 }
-.owl-prev {
+#slider .owl-nav .owl-prev {
     left: 60px;
+    -webkit-transition: left 0.3s;
+    transition: left 0.3s;
+}
+#slider:hover .owl-nav .owl-prev {
+    left: 55px;
     -webkit-transition: left 0.3s;
     transition: left 0.3s;
 }
@@ -257,6 +265,9 @@ li#search, li#user, li#cart{
     -webkit-transition: right 0.3s;
     transition: right 0.3s;
     float: right;
+}
+#slider:hover .owl-nav .owl-next {
+    right: 55px;
 }
 .banner-arrow-left, .banner-arrow-right {
     border-radius: 100%;
