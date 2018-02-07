@@ -33,6 +33,9 @@ body {
     clear: both;
     display: block;
 }
+.row-responsive {
+  height: 100%;
+}
 .responsive {
     padding: 7px;
     float: left;
@@ -83,12 +86,11 @@ body {
     }
 }
 
-a {
+a, img {
     cursor: pointer;
-    text-decoration: none;
 }
-img {
-    cursor: pointer;
+a {
+    text-decoration: none;
 }
 input {
 
@@ -100,10 +102,6 @@ ul {
 }
 ul li {
 
-}
-
-.pointer {
-    cursor: pointer;
 }
 #app {
     margin: auto;
@@ -182,9 +180,17 @@ li#search, li#user, li#cart{
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
-    opacity: 0.95;
+    background: rgba(0,0,0,0.8);
     z-index: 1;
+    animation: mob-bg 0.6s;
+}
+@keyframes mob-bg {
+    from {
+      background: rgba(0,0,0,0);
+    }
+    to {
+      background: rgba(0,0,0,0.8);
+    }
 }
 #delete-nav {
     position: absolute;
@@ -200,6 +206,15 @@ li#search, li#user, li#cart{
     left: 0;
     overflow-y: scroll;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    animation: mob-menu-trans 0.6s;
+}
+@keyframes mob-menu-trans {
+    from {
+      left: -260px;
+    }
+    to {
+      left: 0;
+    }
 }
 #mob-menu ul{
     margin-top: 30px;
@@ -322,8 +337,44 @@ li#search, li#user, li#cart{
     background-color: rgba(119,119,119,0.6);
 }
 #navHot {
-    height: 65px;
-    background-color: #f4f4f4;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #f2f3f5;
+}
+.section-content {
+  margin: auto;
+  height: 100%;
+  max-width: 1080px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.responsive-3 {
+  float: left;
+  width: 24.99999%;
+}
+@media only screen and (max-width: 550px){
+  .responsive-3 {
+    width: 49.99999%;
+    float: none;
+    display: inline-block;
+  }
+}
+#navHot .img-inner {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 100%;
+}
+#navHot .img-inner img {
+  width: 163px;
+  transform: scale3d(1,1,1);
+  transition: .2s;
+}
+#navHot .img-inner a img {
+  display: none;
+}
+#navHot .img-inner a img:hover {
+  transform: scale3d(1.1,1.1,1);
 }
 
 #content {
@@ -337,7 +388,8 @@ li#search, li#user, li#cart{
     height: auto;
 }
 #footer {
-
+  height: 50px;
+  background-color: #9d9d9d;
 }
 
 .icon-menu:before {

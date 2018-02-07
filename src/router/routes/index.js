@@ -1,7 +1,7 @@
 const express= require('express');
 const router = express.Router();
 const queryFunc = require('../../dao/connection');
-const {items} = require('../../test/data');
+const {items} = require('../../testData');
 const {
     ROUTER_URIS
 } = require('../constants');
