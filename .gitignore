@@ -29,5 +29,4 @@ _book/
 reports/
 users.out.json
 .env.*
-config/
 test/load/*.out.json
