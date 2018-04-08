@@ -44,14 +44,14 @@ export default {
   methods: {
     imageScale: function (e) {
       if(e.target.nodeName === 'IMG' && e.target.parentNode.nodeName !== 'A') {
-        e.target.style.display = 'none';
-        $(e.target).next().children()[0].style.display = 'inline';
+        e.target.style.display = 'none'
+        $(e.target).next().children()[0].style.display = 'inline'
       }
     },
     changeImage: function (e) {
       if(e.target.nodeName === 'IMG' && e.target.parentNode.nodeName === 'A') {
-        $(e.target).parent().prev()[0].style.display = 'inline';
-        e.target.style.display = 'none';
+        $(e.target).parent().prev()[0].style.display = 'inline'
+        e.target.style.display = 'none'
       }
     }
   }

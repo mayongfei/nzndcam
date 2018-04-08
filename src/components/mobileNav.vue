@@ -33,11 +33,11 @@ export default {
   },
   methods: {
     hideMobileNav: function(e) {
-      e.currentTarget.style.display = "none";
-      document.querySelector("html").style.overflow = 'auto';
+      e.currentTarget.style.display = "none"
+      document.querySelector("html").style.overflow = 'auto'
     },
     stopHide: function (e) {
-      e.stopPropagation();
+      e.stopPropagation()
     }
   }
 }

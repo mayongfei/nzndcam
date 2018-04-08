@@ -28,7 +28,7 @@ const logger = require('winston');
 class ProductServer {
   constructor(options = {}) {
     let defaultOpt = {
-      port: 80
+      port: 3000
     };
     this.app = express();
     this.options = Object.assign(defaultOpt, options);

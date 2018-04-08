@@ -63,9 +63,9 @@ export default {
   },
   methods: {
     showMobileNav: function(e) {
-      e.preventDefault();
-      document.getElementById('mob-nav').style.display = "block";
-      document.querySelector("html").style.overflow = 'hidden';
+      e.preventDefault()
+      document.getElementById('mob-nav').style.display = "block"
+      document.querySelector("html").style.overflow = 'hidden'
     }
   }
 }
