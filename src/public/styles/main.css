@@ -39,7 +39,8 @@ body {
 .responsive {
     padding: 7px;
     float: left;
-    width: 24.99999%;
+    width: 33.33333%;
+    text-align: center;
 }
 .logo-mob, .div-menu {
     text-align: left;
@@ -53,7 +54,7 @@ body {
 }
 @media only screen and (max-width: 700px){
     .responsive {
-        width: 49.99999%;
+        width: 33.33333%;
         float: none;
         display: inline-block;
     }
@@ -385,6 +386,7 @@ li#search, li#user, li#cart{
 }
 #content img {
     width: 100%;
+    max-width: 250px;
     height: auto;
 }
 #footer {

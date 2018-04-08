@@ -3,67 +3,80 @@ const items = [
   {
     id: 1,
     name: '1home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 2,
     name: '2home-rlc-423',
-    src: 'home-rlc-423.jpg'
+    src: 'home-rlc-423.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 3,
     name: '3home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 4,
     name: '4rlk8-410b4-home',
-    src: 'rlk8-410b4-home.jpg'
+    src: 'rlk8-410b4-home.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 5,
     name: '5home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 6,
     name: '6home-rlc-423',
-    src: 'home-rlc-423.jpg'
+    src: 'home-rlc-423.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 7,
     name: '7home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 8,
     name: '8home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video',
+    memory: 'System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 9,
     name: '9rlk8-410b4-home',
-    src: 'rlk8-410b4-home.jpg'
+    src: 'rlk8-410b4-home.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 10,
     name: '10home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 11,
     name: '11rlk8-410b4-home',
-    src: 'rlk8-410b4-home.jpg'
+    src: 'rlk8-410b4-home.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   },
   {
     id: 12,
     name: '12home-c1-pro',
-    src: 'home-c1-pro.jpg'
+    src: 'home-c1-pro.jpg',
+    description: 'Stay Safe with 1440p PoE Security Video System! 3TB HDD 16-Channel NVR for 24/7 Recording.'
   }
 ];
 
 let getProducts = function () {
-  let colSize = 4;
+  let colSize = 3;
   let cols = [];
   let products = [];
   for(let i = 0; i < items.length; i++) {
