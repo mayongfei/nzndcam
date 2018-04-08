@@ -4,7 +4,7 @@
       <div class="col-4 col-all logo-mob">
         <div class="row">
           <div class="col-3 div-menu">
-            <a href="http://localhost:8080/" id="menu" v-on:click="showMobileNav">
+            <a href="" id="menu" v-on:click="showMobileNav">
               <img src="../public/images/icon-menu.png" alt="Menu"/>
             </a>
           </div>
@@ -33,6 +33,14 @@
             </li>
             <li id="company">
               <a class="nav-link" href="">Company</a>
+              <div class="sub-com">
+                <div class="sub-com-title">
+                  <a class="nav-link" href="" v-on:click="company($event, 'aboutUs')">About Us</a>
+                </div>
+                <div class="sub-com-title">
+                  <a class="nav-link" href="" v-on:click="company($event, 'contactUs')">Contact us</a>
+                </div>
+              </div>
             </li>
             <li id="split">
               <div style="height: 80px;width: 16px;margin-left: 15px;">丨</div>
@@ -66,6 +74,21 @@ export default {
       e.preventDefault()
       document.getElementById('mob-nav').style.display = "block"
       document.querySelector("html").style.overflow = 'hidden'
+    },
+    company: function(e, type) {
+      e.preventDefault()
+      document.getElementById('content').style.display = "none"
+      document.getElementById('slider').style.display = "none"
+      document.getElementById('navHot').style.display = "none"
+      if(type === 'aboutUs') {
+        document.getElementById('aboutUs').style.display = "block"
+        document.getElementById('contactUs').style.display = "none"
+      }
+      if(type === 'contactUs') {
+        document.getElementById('aboutUs').style.display = "none"
+        document.getElementById('contactUs').style.display = "block"
+      }
+
     }
   }
 }
@@ -73,5 +96,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  li#company .sub-com {
+    position: relative;
+  }
+  .sub-com {
+    display: none;
+    position: absolute;
+    left: -18px;
+    top: -3px;
+    width: 120px;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    opacity: 1;
+    border-top: 2px solid #0088cc;
+  }
+  li#company:hover .sub-com{
+    display: block;
+  }
+  .sub-com-title {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
 
 </style>

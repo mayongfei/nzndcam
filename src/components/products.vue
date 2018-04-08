@@ -3,7 +3,7 @@
     <div v-if="items.length > 0">
       <div class="row-responsive" v-for="item in items">
         <div class="responsive" v-for="product in item">
-          <a href="#"><img v-bind:src="'./src/public/images/' + product.src" width="250px"></a><br/>
+          <a href="#"><img v-bind:src="'./src/public/images/products/' + product.src" width="250px"></a><br/>
           <a class="p-title" href="#">{{product.name}}</a>
           <p class="p-des">{{product.description}}</p>
         </div>

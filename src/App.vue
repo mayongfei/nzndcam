@@ -14,6 +14,8 @@
     <slider></slider>
     <nav-hot></nav-hot>
     <products></products>
+    <about-us></about-us>
+    <contact-us></contact-us>
     <div id="footer">
 
     </div>
@@ -27,6 +29,8 @@ import navHot from '@/components/navHot'
 import slider from '@/components/slider'
 import products from '@/components/products'
 import NavHot from "./components/navHot";
+import aboutUs from "./components/aboutUs";
+import contactUs from "./components/contactUs";
 
 export default {
   name: 'app',
@@ -36,6 +40,8 @@ export default {
     'navigator': navigator,
     'nav-hot': navHot,
     'slider': slider,
+    'about-us': aboutUs,
+    'contact-us': contactUs,
     'products': products
   },
   methods: {
