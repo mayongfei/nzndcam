@@ -11,38 +11,22 @@
       <span class="free-orders">Free Shipping on all Orders!</span>
     </div>
     <navigator></navigator>
-    <slider></slider>
-    <nav-hot></nav-hot>
-    <products></products>
-    <about-us></about-us>
-    <contact-us></contact-us>
-    <div id="footer">
-
-    </div>
+    <router-view/>
+    <foot></foot>
   </div>
 </template>
 
 <script>
 import mobileNav from '@/components/mobileNav'
 import navigator from '@/components/navigator'
-import navHot from '@/components/navHot'
-import slider from '@/components/slider'
-import products from '@/components/products'
-import NavHot from "./components/navHot";
-import aboutUs from "./components/aboutUs";
-import contactUs from "./components/contactUs";
+import foot from '@/components/foot'
 
 export default {
   name: 'app',
   components: {
-    NavHot,
     'mobile-nav': mobileNav,
     'navigator': navigator,
-    'nav-hot': navHot,
-    'slider': slider,
-    'about-us': aboutUs,
-    'contact-us': contactUs,
-    'products': products
+    'foot': foot
   },
   methods: {
     stopHide: function (e) {

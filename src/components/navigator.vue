@@ -9,10 +9,10 @@
             </a>
           </div>
           <div class="col-6">
-            <a href="http://localhost:8080/" id="logo"><img src="../public/images/logo.jpg" alt="Logo"/></a>
+            <a href="http://localhost:3000/" id="logo"><img src="../public/images/logo.jpg" alt="Logo"/></a>
           </div>
           <div class="col-3 div-shop">
-            <a href="http://localhost:8080/" id="shop"><img src="../public/images/cart-mo.png" alt="Menu"/></a>
+            <a href="http://localhost:3000/" id="shop"><img src="../public/images/cart-mo.png" alt="Menu"/></a>
           </div>
         </div>
       </div>
@@ -20,25 +20,25 @@
         <div id="nav-title" class="">
           <ul>
             <li id="store">
-              <a class="nav-link" href="">Store</a>
+              <router-link class="nav-link" to="/products">Store</router-link>
             </li>
             <li id="products">
-              <a class="nav-link" href="">Products</a>
+              <router-link  class="nav-link" to="/products">Products</router-link>
             </li>
             <li id="video">
-              <a class="nav-link" href="">Video</a>
+              <router-link class="nav-link" to="/aboutUs">Video</router-link>
             </li>
             <li id="support">
-              <a class="nav-link" href="">Support</a>
+              <router-link class="nav-link" to="/aboutUs">Support</router-link>
             </li>
             <li id="company">
-              <a class="nav-link" href="">Company</a>
+              <router-link class="nav-link" to="/aboutUs">Company</router-link>
               <div class="sub-com">
                 <div class="sub-com-title">
-                  <a class="nav-link" href="" v-on:click="company($event, 'aboutUs')">About Us</a>
+                  <router-link class="nav-link" to="/aboutUs">About Us</router-link>
                 </div>
                 <div class="sub-com-title">
-                  <a class="nav-link" href="" v-on:click="company($event, 'contactUs')">Contact us</a>
+                  <router-link class="nav-link" to="/contactUs">Contact Us</router-link>
                 </div>
               </div>
             </li>
@@ -118,6 +118,12 @@ export default {
     height: 50px;
     line-height: 50px;
     text-align: center;
+  }
+  .sub-com-title:hover {
+    background-color: #eeeeee;
+  }
+  .sub-com-title:hover a {
+    color: #00ade5;
   }
 
 </style>

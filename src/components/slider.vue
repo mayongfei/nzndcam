@@ -1,5 +1,5 @@
 <template>
-  <div id="slider" draggable="true">
+  <div class="banner slider" draggable="true">
     <div class="owl-nav">
       <div class="owl-prev">
         <div class="banner-arrow-left" v-on:click="sliderImage($event, 'prev')"></div>
@@ -82,5 +82,7 @@ function getImage(type) {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .slider {
+    background-image: url("../public/images/home-banner0.jpg");
+  }
 </style>

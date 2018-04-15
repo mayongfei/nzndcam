@@ -1,23 +1,27 @@
 <template>
-  <div id="content">
-    <div v-if="items.length > 0">
-      <div class="row-responsive" v-for="item in items">
-        <div class="responsive" v-for="product in item">
-          <a href="#"><img v-bind:src="'./src/public/images/products/' + product.src" width="250px"></a><br/>
-          <a class="p-title" href="#">{{product.name}}</a>
-          <p class="p-des">{{product.description}}</p>
+  <div>
+    <div class="banner product">
+
+    </div>
+    <div id="content">
+      <div v-if="items.length > 0">
+        <div class="row-responsive" v-for="item in items">
+          <div class="responsive" v-for="product in item">
+            <a href="#"><img v-bind:src="'./src/public/images/products/' + product.src" width="250px"></a><br/>
+            <a class="p-title" href="#">{{product.name}}</a>
+            <p class="p-des">{{product.description}}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div v-else>
-      <p>Currently there is no Product. Please click 'Add Product' button to add product.</p>
+      <div v-else>
+        <p>Currently there is no Product. Please click 'Add Product' button to add product.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import {getProducts} from '../testData'
-
 
 export default {
   name: 'products',
@@ -34,6 +38,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .product {
+    background-image: url("../public/images/product-banner.jpg");
+  }
   a.p-title {
     font-size: 26px;
     color: #333;

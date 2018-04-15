@@ -167,11 +167,16 @@ li#search, li#user, li#cart{
     width: 7%;
 }
 .nav-link {
+    text-decoration: none;
     text-transform: none;
-    font-weight: 400;
+    font-family: quicksand;
     font-size: 16px;
-    color: #777;
-    font-family: "Roboto", sans-serif;
+    color: #555;
+    cursor: pointer;
+    font-weight: 500;
+}
+.nav-link:hover {
+    color: #00ade5;
 }
 .nav-icon{
 
@@ -233,20 +238,20 @@ li#search, li#user, li#cart{
 #mob-menu ul li a:hover {
     color: #0088cc;
 }
-#slider {
+.banner {
     position: relative;
     height: 474px;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    background-image: url("../images/home-banner0.jpg");
+
 }
-#slider .owl-nav {
+.banner .owl-nav {
     display: none;
     width: 0 !important;
 }
-#slider:hover .owl-nav {
+.banner:hover .owl-nav {
     display: block;
 }
 .owl-dot, .owl-nav .owl-next, .owl-nav .owl-prev {
@@ -266,17 +271,17 @@ li#search, li#user, li#cart{
     transform: translateY(-50%);
     top: 50%;
 }
-#slider .owl-nav .owl-prev {
+.banner .owl-nav .owl-prev {
     left: 60px;
 }
-#slider .owl-nav .owl-next {
+.banner .owl-nav .owl-next {
     right: 60px;
     float: right;
 }
-#slider:hover .owl-nav .owl-prev {
+.banner:hover .owl-nav .owl-prev {
     animation: owl-prev-left 0.3s;
 }
-#slider:hover .owl-nav .owl-next {
+.banner:hover .owl-nav .owl-next {
     animation: owl-next-right 0.3s;
 }
 @keyframes owl-prev-left {
@@ -382,7 +387,6 @@ li#search, li#user, li#cart{
     padding-top: 20px;
     max-width: 1120px;
     margin: auto;
-    overflow-y: auto;
 }
 #content img {
     width: 100%;
@@ -390,19 +394,12 @@ li#search, li#user, li#cart{
     height: auto;
 }
 #footer {
-  height: 50px;
-  background-color: #9d9d9d;
+  background-color: #2B2B2B;
+  padding: 75px 0 40px;
 }
 
 .icon-menu:before {
     content: "\e800";
-}
-
-#contactUs, #aboutUs {
-  padding-top: 20px;
-  max-width: 1120px;
-  margin: auto;
-
 }
 
 #logo {
