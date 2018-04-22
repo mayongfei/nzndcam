@@ -29,7 +29,12 @@
               <router-link class="nav-link" to="/aboutUs">Video</router-link>
             </li>
             <li id="support">
-              <router-link class="nav-link" to="/aboutUs">Support</router-link>
+              <router-link class="nav-link" to="/software">Support</router-link>
+              <div class="sub-com">
+                <div class="sub-com-title">
+                  <router-link class="nav-link" to="/software">Software & Manual</router-link>
+                </div>
+              </div>
             </li>
             <li id="company">
               <router-link class="nav-link" to="/aboutUs">Company</router-link>
@@ -74,21 +79,6 @@ export default {
       e.preventDefault()
       document.getElementById('mob-nav').style.display = "block"
       document.querySelector("html").style.overflow = 'hidden'
-    },
-    company: function(e, type) {
-      e.preventDefault()
-      document.getElementById('content').style.display = "none"
-      document.getElementById('slider').style.display = "none"
-      document.getElementById('navHot').style.display = "none"
-      if(type === 'aboutUs') {
-        document.getElementById('aboutUs').style.display = "block"
-        document.getElementById('contactUs').style.display = "none"
-      }
-      if(type === 'contactUs') {
-        document.getElementById('aboutUs').style.display = "none"
-        document.getElementById('contactUs').style.display = "block"
-      }
-
     }
   }
 }
@@ -96,22 +86,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  li#company .sub-com {
+  li#support, li#company {
     position: relative;
+  }
+  li#company .sub-com {
+    width: 120px;
+    left: -18px;
+  }
+  li#support .sub-com {
+    width: 180px;
+    left: -58px;
   }
   .sub-com {
     display: none;
     position: absolute;
-    left: -18px;
-    top: -3px;
-    width: 120px;
+    top: 78px;
     background-color: #fff;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
     z-index: 1;
     opacity: 1;
     border-top: 2px solid #0088cc;
   }
-  li#company:hover .sub-com{
+  li:hover .sub-com{
     display: block;
   }
   .sub-com-title {

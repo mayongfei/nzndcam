@@ -1,5 +1,5 @@
 <template>
-  <div class="banner slider" draggable="true">
+  <div id="slider" class="banner slider" draggable="true">
     <div class="owl-nav">
       <div class="owl-prev">
         <div class="banner-arrow-left" v-on:click="sliderImage($event, 'prev')"></div>
