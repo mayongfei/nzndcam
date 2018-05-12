@@ -9,10 +9,10 @@
             </a>
           </div>
           <div class="col-6">
-            <a href="" id="logo"><img src="../public/images/logo.jpg" alt="Logo"/></a>
+            <a href="http://www.nzndcam.net/" id="logo"><img src="../public/images/logo.jpg" alt="Logo"/></a>
           </div>
           <div class="col-3 div-shop">
-            <a href="" id="shop"><img src="../public/images/cart-mo.png" alt="Menu"/></a>
+            <a href="http://www.nzndcam.net/" id="shop"><img src="../public/images/cart-mo.png" alt="Menu"/></a>
           </div>
         </div>
       </div>

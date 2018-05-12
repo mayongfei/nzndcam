@@ -107,6 +107,7 @@ export default {
     margin-bottom: .6em;
   }
   .product-item:hover {
+    border: 1px solid #00ace6;
     top: -8px;
   }
   .product-item a:first-child {
