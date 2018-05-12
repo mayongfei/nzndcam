@@ -388,14 +388,57 @@ li#search, li#user, li#cart{
     max-width: 1120px;
     margin: auto;
 }
-#content img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-}
 #footer {
   background-color: #2B2B2B;
-  padding: 75px 0 40px;
+  padding: 40px 0 0 0;
+}
+#sub_footer {
+  max-width: 1120px;
+  margin: auto;
+  color: #999;
+  font-size: 14px;
+  height: 80px;
+}
+#footer a {
+  color: #999;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+}
+#footer a:hover {
+  color: #fff;
+}
+.l_footer {
+  float: left;
+}
+.l_footer ul li:not(:first-child) {
+  padding-left: 10px;
+}
+.l_footer ul li {
+  padding-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+#footer .desc {
+  color: #999;
+  font-weight: 500;
+  font-size: 13px;
+}
+#footer p {
+  margin-top: 0;
+}
+
+.r_footer {
+  float: right;
+}
+.r_footer img {
+  margin-bottom: 8px;
+  transition: opacity 1s;
+  opacity: 1;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .icon-menu:before {
