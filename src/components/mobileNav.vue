@@ -4,19 +4,19 @@
     <div id="mob-menu" v-on:click="stopHide">
       <ul>
         <li>
-          <a class="nav-link" href="">Store</a>
+          <a class="nav-link" href="/products">Store</a>
         </li>
         <li>
-          <a class="nav-link" href="">Products</a>
+          <a class="nav-link" href="/products">Products</a>
         </li>
         <li>
-          <a class="nav-link" href="">Video</a>
+          <a class="nav-link" href="/products">Video</a>
         </li>
         <li>
-          <a class="nav-link" href="">Support</a>
+          <a class="nav-link" href="/software">Support</a>
         </li>
         <li>
-          <a class="nav-link" href="">Company</a>
+          <a class="nav-link" href="/aboutUs">Company</a>
         </li>
       </ul>
     </div>
