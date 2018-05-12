@@ -2,7 +2,7 @@ body {
     margin: 0px;
     font-family: "Roboto", sans-serif;
 }
-* {
+*, *:before, *:after {
     box-sizing: border-box;
 }
 
@@ -137,7 +137,7 @@ span.free-orders {
 #navigator {
     height: 80px;
     margin: auto;
-    max-width: 1120px;
+    max-width: 1200px;
     position: relative;
     background-size: cover;
     background-position: 50% 0;
@@ -385,7 +385,7 @@ li#search, li#user, li#cart{
 
 #content {
     padding-top: 20px;
-    max-width: 1120px;
+    max-width: 1200px;
     margin: auto;
 }
 #footer {
@@ -393,7 +393,7 @@ li#search, li#user, li#cart{
   padding: 40px 0 0 0;
 }
 #sub_footer {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: auto;
   color: #999;
   font-size: 14px;
