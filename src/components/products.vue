@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {getProducts} from '../testData'
+import {getProducts} from '../productData'
 
 export default {
   name: 'products',

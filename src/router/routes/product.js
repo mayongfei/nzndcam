@@ -9,7 +9,7 @@ const {
     mattermostEnv,
     msteamsEnv,
     loginEnv
-} = require('../../testData');
+} = require('../../productData');
 
 router.post('/', function (req, res) {
     let data = req.body.data;
